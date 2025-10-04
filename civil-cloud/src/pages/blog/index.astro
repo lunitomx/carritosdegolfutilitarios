@@ -1,0 +1,58 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+const allPosts = await getCollection('blog');
+const sortedPosts = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+
+<BaseLayout
+    title="Blog de Industria y Movilidad | Cushman Utilitarios Eléctricos"
+    description="Consejos, análisis y mejores prácticas para optimizar su flota y operativa con soluciones eléctricas."
+>
+    <Header />
+
+    <main>
+        <!-- Blog Hero -->
+        <section class="py-20 sm:py-28 bg-gray-50 border-b border-gray-200">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight text-gray-900">Blog de Industria y Movilidad</h1>
+                <p class="mt-4 text-lg max-w-2xl mx-auto text-gray-600">Consejos, análisis y mejores prácticas para optimizar su flota y operativa con soluciones eléctricas.</p>
+            </div>
+        </section>
+
+        <!-- Listado de Artículos -->
+        <section class="py-16 sm:py-24">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                    {sortedPosts.map((post) => (
+                        <a href={`/blog/${post.slug}`} class="group block bg-white rounded-xl border border-gray-200 shadow-md hover:shadow-2xl transition-all duration-300">
+                            <div class="overflow-hidden rounded-t-xl">
+                                <img src={post.data.image} alt={post.data.title} class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-300">
+                            </div>
+                            <div class="p-6">
+                                <span class={`text-sm font-semibold ${
+                                    post.data.category === 'MANTENIMIENTO' ? 'text-blue-600' :
+                                    post.data.category === 'EFICIENCIA' ? 'text-green-600' :
+                                    'text-red-600'
+                                }`}>{post.data.category}</span>
+                                <h2 class="mt-2 text-xl font-bold text-gray-900 group-hover:text-blue-700">{post.data.title}</h2>
+                                <p class="mt-3 text-gray-600 text-sm">{post.data.description}</p>
+                                <div class="mt-4 text-xs text-gray-500">
+                                    Por {post.data.author} | {post.data.pubDate.toLocaleDateString('es-MX', { year: 'numeric', month: 'long', day: 'numeric' })}
+                                </div>
+                                <div class="mt-4 font-semibold text-blue-600 flex items-center">
+                                    Leer más <i data-lucide="arrow-right" class="w-4 h-4 ml-2 group-hover:ml-3 transition-all"></i>
+                                </div>
+                            </div>
+                        </a>
+                    ))}
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <Footer />
+</BaseLayout>

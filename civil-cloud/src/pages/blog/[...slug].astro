@@ -1,0 +1,165 @@
+---
+import { getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+export async function getStaticPaths() {
+    const posts = await getCollection('blog');
+    return posts.map(post => ({
+        params: { slug: post.slug },
+        props: { post },
+    }));
+}
+
+type Props = {
+    post: CollectionEntry<'blog'>;
+};
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+
+// Calcular tiempo de lectura (aproximado)
+const wordsPerMinute = 200;
+const textLength = post.body.split(/\s+/).length;
+const readingTime = Math.ceil(textLength / wordsPerMinute);
+---
+
+<BaseLayout
+    title={`${post.data.title} | Blog Cushman Utilitarios`}
+    description={post.data.description}
+>
+    <Header />
+
+    <!-- Article Schema Markup -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": post.data.title,
+        "description": post.data.description,
+        "image": post.data.image,
+        "datePublished": post.data.pubDate.toISOString(),
+        "author": {
+            "@type": "Organization",
+            "name": post.data.author
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Cushman Utilitarios Eléctricos",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://example.com/logo.png"
+            }
+        }
+    })} />
+
+    <main class="py-16 sm:py-24">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Breadcrumbs -->
+            <nav class="mb-8 text-sm text-gray-600">
+                <ol class="flex items-center space-x-2">
+                    <li><a href="/" class="hover:text-blue-600">Inicio</a></li>
+                    <li><i data-lucide="chevron-right" class="w-4 h-4"></i></li>
+                    <li><a href="/blog" class="hover:text-blue-600">Blog</a></li>
+                    <li><i data-lucide="chevron-right" class="w-4 h-4"></i></li>
+                    <li class="text-gray-900 font-medium truncate">{post.data.title}</li>
+                </ol>
+            </nav>
+
+            <article>
+                <header class="text-center mb-12">
+                    <a href="/blog" class="text-blue-600 font-semibold mb-4 inline-block hover:underline">
+                        <i data-lucide="arrow-left" class="inline w-4 h-4 mr-2"></i>Volver al Blog
+                    </a>
+                    <p class="text-base font-semibold text-blue-600 mt-4">{post.data.category}</p>
+                    <h1 class="mt-2 text-4xl md:text-5xl font-extrabold tracking-tight text-gray-900">
+                        {post.data.title}
+                    </h1>
+                    <div class="mt-6 flex items-center justify-center space-x-4 text-gray-600">
+                        <span>Por <span class="font-semibold text-gray-800">{post.data.author}</span></span>
+                        <span>•</span>
+                        <time datetime={post.data.pubDate.toISOString()}>
+                            {post.data.pubDate.toLocaleDateString('es-MX', { year: 'numeric', month: 'long', day: 'numeric' })}
+                        </time>
+                        <span>•</span>
+                        <span>{readingTime} min de lectura</span>
+                    </div>
+                </header>
+
+                <img src={post.data.image} alt={post.data.title} class="w-full rounded-xl shadow-lg mb-12">
+
+                <div class="prose prose-lg prose-blue max-w-none article-content">
+                    <Content />
+                </div>
+
+                <!-- Tags -->
+                <div class="mt-12 pt-8 border-t border-gray-200">
+                    <h3 class="text-sm font-semibold text-gray-700 mb-3">Etiquetas:</h3>
+                    <div class="flex flex-wrap gap-2">
+                        {post.data.tags.map((tag) => (
+                            <span class="inline-block bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">
+                                {tag}
+                            </span>
+                        ))}
+                    </div>
+                </div>
+            </article>
+
+            <!-- Separador y CTA -->
+            <div class="max-w-3xl mx-auto mt-16">
+                <hr class="border-gray-200">
+                <div class="text-center py-10">
+                    <h3 class="text-2xl font-bold text-gray-900">¿Tiene dudas sobre este tema?</h3>
+                    <p class="mt-2 text-gray-600">Nuestro equipo de soporte técnico está listo para ayudarle.</p>
+                    <a href="/#contacto" class="mt-6 inline-block bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg hover:bg-blue-700 transition-all">
+                        Contactar a Soporte
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <Footer />
+
+    <style>
+        .article-content {
+            color: #374151;
+        }
+        .article-content h2 {
+            font-size: 1.875rem;
+            font-weight: 700;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            color: #111827;
+        }
+        .article-content h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-top: 2rem;
+            margin-bottom: 0.75rem;
+            color: #111827;
+        }
+        .article-content p {
+            font-size: 1.125rem;
+            line-height: 1.75;
+            margin-bottom: 1.5rem;
+        }
+        .article-content ul,
+        .article-content ol {
+            padding-left: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        .article-content li {
+            margin-bottom: 0.75rem;
+        }
+        .article-content a {
+            color: #2563eb;
+            text-decoration: underline;
+        }
+        .article-content strong {
+            font-weight: 600;
+            color: #111827;
+        }
+    </style>
+</BaseLayout>

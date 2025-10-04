@@ -1,0 +1,279 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import WhatsAppButton from '../../components/WhatsAppButton.astro';
+import { siteConfig } from '../../config/site';
+
+export async function getStaticPaths() {
+  return [
+    {
+      params: { slug: 'hauler-pro-negro' },
+      props: {
+        product: {
+          name: 'HAULER PRO Negro',
+          subtitle: 'BATEA DE ALUMINIO ELÉCTRICA',
+          price: 210000,
+          currency: 'MXN',
+          description: 'Carrito utilitario eléctrico Cushman Hauler PRO con batea de aluminio eléctrica, equipado con 9 baterías Trojan nuevas de 8V, llantas nuevas y vestiduras premium. Ideal para carga pesada y servicio industrial.',
+          images: [
+            '/productos/DSC00900.webp',
+            '/productos/DSC00903.webp',
+            '/productos/DSC00905.webp'
+          ],
+          features: [
+            '9 Baterías TROJAN Nuevas (8V)',
+            'Batea Eléctrica de Aluminio',
+            'Llantas Nuevas',
+            'Vestiduras Premium',
+            '100% Eléctrico',
+            'Modelo 2020'
+          ],
+          specs: [
+            { label: 'Motor', value: 'Eléctrico AC' },
+            { label: 'Baterías', value: '9x Trojan 8V (Nuevas)' },
+            { label: 'Tipo de Batea', value: 'Aluminio Eléctrica' },
+            { label: 'Capacidad de Carga', value: '500-700 kg' },
+            { label: 'Año', value: '2020' },
+            { label: 'Condición', value: 'Seminuevo - Excelente Estado' }
+          ]
+        }
+      }
+    },
+    {
+      params: { slug: 'hauler-pro-aluminium-bed-box' },
+      props: {
+        product: {
+          name: 'HAULER PRO Aluminium Bed BOX Eléctrico',
+          subtitle: 'BATEA ELÉCTRICA DE ALUMINIO - COLOR BLANCO',
+          price: 210000,
+          currency: 'MXN',
+          description: 'Carrito utilitario eléctrico Cushman Hauler PRO modelo 2020 en color blanco, equipado con batea eléctrica de aluminio, 9 baterías Trojan nuevas de 8V, llantas nuevas 20x8x10, pintura nueva, vestiduras nuevas en negro, luces LED, cargador integrado y defensa. Ideal para hotelería, industria y servicios.',
+          images: [
+            '/productos/DSC00942.webp',
+            '/productos/DSC00945.webp',
+            '/productos/DSC00946.webp'
+          ],
+          features: [
+            '9 Baterías TROJAN Nuevas (8V)',
+            'Batea Eléctrica de Aluminio',
+            'Llantas Nuevas 20x8x10',
+            'Pintura Nueva - Color Blanco',
+            'Vestiduras Nuevas en Negro',
+            'Luces LED',
+            'Cargador Integrado',
+            'Defensa',
+            '100% Eléctrico',
+            'Modelo 2020'
+          ],
+          specs: [
+            { label: 'Marca', value: 'Cushman' },
+            { label: 'Modelo', value: 'Hauler PRO' },
+            { label: 'Año', value: '2020' },
+            { label: 'Color', value: 'Blanco' },
+            { label: 'Motor', value: 'Eléctrico AC' },
+            { label: 'Baterías', value: '9x Trojan 8V (Nuevas)' },
+            { label: 'Tipo de Batea', value: 'Aluminio Eléctrica' },
+            { label: 'Llantas', value: 'Nuevas 20x8x10' },
+            { label: 'Vestiduras', value: 'Nuevas - Negro' },
+            { label: 'Iluminación', value: 'Luces LED' },
+            { label: 'Capacidad de Carga', value: '500-700 kg' },
+            { label: 'Condición', value: 'Seminuevo - Excelente Estado' }
+          ]
+        }
+      }
+    },
+    {
+      params: { slug: 'hauler-pro-food-service' },
+      props: {
+        product: {
+          name: 'HAULER PRO Food Service',
+          subtitle: 'VANBOX - CAJA SECA ELÉCTRICO',
+          price: 210000,
+          currency: 'MXN',
+          description: 'Carrito utilitario eléctrico Cushman Hauler PRO con caja seca VanBox, ideal para food service, catering, hotelería y campus universitarios. 9 baterías Trojan nuevas de 8V.',
+          images: [
+            '/productos/DSC00912.webp',
+            '/productos/DSC00914.webp',
+            '/productos/DSC00915.webp'
+          ],
+          features: [
+            'Caja Seca VanBox',
+            '9 Baterías TROJAN Nuevas (8V)',
+            'Ideal para Food Service',
+            'Perfecto para Hotelería',
+            '100% Eléctrico',
+            'Modelo 2020'
+          ],
+          specs: [
+            { label: 'Motor', value: 'Eléctrico AC' },
+            { label: 'Baterías', value: '9x Trojan 8V (Nuevas)' },
+            { label: 'Tipo de Configuración', value: 'Caja Seca VanBox' },
+            { label: 'Uso Ideal', value: 'Food Service / Catering / Hoteles' },
+            { label: 'Año', value: '2020' },
+            { label: 'Condición', value: 'Seminuevo - Excelente Estado' }
+          ]
+        }
+      }
+    }
+  ];
+}
+
+const { product } = Astro.props;
+const { slug } = Astro.params;
+---
+
+<BaseLayout
+  title={`${product.name} - ${product.subtitle} | Cushman Utilitarios`}
+  description={product.description}
+  image={product.images[0]}
+  type="product"
+>
+  <Header />
+  <WhatsAppButton message={`Hola, me interesa el ${product.name}. ¿Pueden darme más información?`} />
+
+  <!-- Product Schema -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": product.name,
+    "description": product.description,
+    "image": product.images.map(img => new URL(img, siteConfig.url).toString()),
+    "brand": {
+      "@type": "Brand",
+      "name": "Cushman"
+    },
+    "offers": {
+      "@type": "Offer",
+      "url": new URL(Astro.url.pathname, siteConfig.url).toString(),
+      "priceCurrency": product.currency,
+      "price": product.price,
+      "availability": "https://schema.org/InStock",
+      "seller": {
+        "@type": "Organization",
+        "name": siteConfig.name
+      }
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "reviewCount": "12"
+    }
+  })} />
+
+  <main>
+    <!-- Breadcrumbs -->
+    <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+      <ol class="flex items-center space-x-2 text-sm text-gray-600">
+        <li><a href="/" class="hover:text-blue-600">Inicio</a></li>
+        <li><i data-lucide="chevron-right" class="w-4 h-4"></i></li>
+        <li><a href="/#modelos" class="hover:text-blue-600">Productos</a></li>
+        <li><i data-lucide="chevron-right" class="w-4 h-4"></i></li>
+        <li class="text-gray-900 font-medium">{product.name}</li>
+      </ol>
+    </nav>
+
+    <!-- Product Hero -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div class="grid lg:grid-cols-2 gap-12">
+        <!-- Galería -->
+        <div>
+          <div class="sticky top-24">
+            <img id="main-image" src={product.images[0]} alt={product.name} class="w-full rounded-2xl shadow-2xl mb-4">
+            <div class="grid grid-cols-3 gap-4">
+              {product.images.map((img, index) => (
+                <img
+                  src={img}
+                  alt={`${product.name} vista ${index + 1}`}
+                  class="w-full h-24 object-cover rounded-lg cursor-pointer hover:opacity-75 transition-opacity thumbnail"
+                  onclick={`document.getElementById('main-image').src='${img}'`}
+                >
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <!-- Info del Producto -->
+        <div>
+          <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">{product.name}</h1>
+          <p class="text-xl text-gray-600 mb-6">{product.subtitle}</p>
+
+          <div class="bg-blue-50 border-2 border-blue-600 rounded-2xl p-6 mb-8">
+            <p class="text-sm text-gray-600 mb-2">Precio Fijo</p>
+            <p class="text-5xl font-extrabold text-blue-600">${product.price.toLocaleString('es-MX')} MXN</p>
+            <p class="text-sm text-gray-600 mt-2">+ IVA si requiere factura</p>
+          </div>
+
+          <p class="text-lg text-gray-700 mb-8">{product.description}</p>
+
+          <div class="space-y-4 mb-8">
+            <h3 class="text-xl font-bold text-gray-900">Características Principales:</h3>
+            <ul class="space-y-3">
+              {product.features.map(feature => (
+                <li class="flex items-start">
+                  <i data-lucide="check-circle" class="w-6 h-6 text-green-600 mr-3 mt-0.5"></i>
+                  <span class="text-gray-700">{feature}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a
+              href={`https://wa.me/${siteConfig.contact.whatsapp}?text=${encodeURIComponent(`Hola, me interesa el ${product.name}. ¿Pueden darme más información?`)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex-1 bg-green-500 text-white text-center font-bold py-4 px-6 rounded-xl hover:bg-green-600 transition-all flex items-center justify-center"
+            >
+              <i data-lucide="message-circle" class="w-6 h-6 mr-2"></i>
+              Contactar por WhatsApp
+            </a>
+            <a
+              href={`tel:${siteConfig.contact.phone}`}
+              class="flex-1 bg-blue-600 text-white text-center font-bold py-4 px-6 rounded-xl hover:bg-blue-700 transition-all flex items-center justify-center"
+            >
+              <i data-lucide="phone" class="w-6 h-6 mr-2"></i>
+              Llamar Ahora
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Especificaciones Técnicas -->
+    <section class="bg-gray-50 py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-extrabold text-gray-900 mb-8">Especificaciones Técnicas</h2>
+        <div class="bg-white rounded-2xl shadow-lg p-8">
+          <dl class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {product.specs.map(spec => (
+              <div class="border-b border-gray-200 pb-4">
+                <dt class="text-sm font-semibold text-gray-500 mb-1">{spec.label}</dt>
+                <dd class="text-lg font-bold text-gray-900">{spec.value}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section class="py-16">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl font-extrabold text-gray-900 mb-4">¿Listo para adquirir este vehículo?</h2>
+        <p class="text-lg text-gray-600 mb-8">Contáctenos ahora y le enviaremos toda la información técnica y opciones de financiamiento.</p>
+        <a
+          href={`https://wa.me/${siteConfig.contact.whatsapp}?text=${encodeURIComponent(`Hola, quiero más información sobre el ${product.name}`)}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center bg-green-500 text-white text-lg font-bold px-8 py-4 rounded-xl shadow-lg hover:bg-green-600 transition-all transform hover:scale-105"
+        >
+          <i data-lucide="message-circle" class="w-6 h-6 mr-3"></i>
+          Solicitar Cotización
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>

@@ -1,0 +1,53 @@
+---
+interface Props {
+  productId: string;
+  title: string;
+  subtitle: string;
+  price: string;
+  features: Array<{ icon: string; text: string; color: string }>;
+  images: string[];
+}
+
+const { productId, title, subtitle, price, features, images } = Astro.props;
+---
+
+<div class="bg-white rounded-2xl shadow-xl border border-gray-200 overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 animate-on-scroll">
+    <div class="relative group">
+        <img id={`img-${productId}`} src={images[0]} alt={`Cushman ${title}`} class="w-full h-64 object-cover">
+        <button onclick={`changeImage('${productId}', -1)`} class="absolute top-1/2 left-3 -translate-y-1/2 bg-white/70 text-gray-800 p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity hover:bg-white">
+            <i data-lucide="chevron-left" class="w-5 h-5"></i>
+        </button>
+        <button onclick={`changeImage('${productId}', 1)`} class="absolute top-1/2 right-3 -translate-y-1/2 bg-white/70 text-gray-800 p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity hover:bg-white">
+            <i data-lucide="chevron-right" class="w-5 h-5"></i>
+        </button>
+        <div id={`dots-${productId}`} class="absolute bottom-3 left-1/2 -translate-x-1/2 flex space-x-2"></div>
+    </div>
+    <div class="p-6">
+        <h3 class="text-2xl font-bold text-gray-900" set:html={title}></h3>
+        <p class="text-sm text-gray-500 mb-4">{subtitle}</p>
+        <div class="bg-gray-50 p-4 rounded-xl mb-5 border border-gray-200">
+            <p class="text-3xl font-extrabold text-blue-600">{price}</p>
+            <p class="text-xs text-gray-500 mt-1">Precio Fijo + IVA si requiere factura.</p>
+        </div>
+        <ul class="space-y-3 text-gray-700 text-sm mb-6">
+            {features.map(feature => (
+                <li class="flex items-center">
+                    <i data-lucide={feature.icon} class={`w-5 h-5 ${feature.color} mr-3`}></i>
+                    <span set:html={feature.text}></span>
+                </li>
+            ))}
+        </ul>
+        <a href={`/productos/${productId}`} class="block w-full text-center bg-blue-600 text-white font-semibold py-3 rounded-lg hover:bg-blue-700 transition-colors">
+            Ver Detalles
+        </a>
+    </div>
+</div>
+
+<script define:vars={{ productId, images }}>
+    if (typeof window.productImages === 'undefined') {
+        window.productImages = {};
+        window.currentImageIndex = {};
+    }
+    window.productImages[productId] = images;
+    window.currentImageIndex[productId] = 0;
+</script>

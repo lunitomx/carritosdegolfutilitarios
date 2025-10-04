@@ -1,0 +1,301 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import WhatsAppButton from '../components/WhatsAppButton.astro';
+import ProductCard from '../components/ProductCard.astro';
+
+const products = [
+    {
+        id: 'hauler-pro-negro',
+        title: 'HAULER PRO <span class="text-blue-600">Negro</span>',
+        subtitle: 'BATEA DE ALUMINIO ELÉCTRICA',
+        price: '$210,000 MXN',
+        images: [
+            '/productos/DSC00900.webp',
+            '/productos/DSC00903.webp',
+            '/productos/DSC00905.webp'
+        ],
+        features: [
+            { icon: 'battery-charging', text: '9 Baterías <strong>TROJAN Nuevas</strong> (8V)', color: 'text-green-600' },
+            { icon: 'truck', text: '<strong>Batea Eléctrica</strong> de Aluminio', color: 'text-blue-600' },
+            { icon: 'check-circle', text: 'Llantas Nuevas y Vestiduras Premium', color: 'text-gray-500' }
+        ]
+    },
+    {
+        id: 'hauler-pro-aluminium-bed-box',
+        title: 'HAULER PRO <span class="text-blue-600">Aluminium Bed BOX</span>',
+        subtitle: 'BATEA ELÉCTRICA DE ALUMINIO - BLANCO',
+        price: '$210,000 MXN',
+        images: [
+            '/productos/DSC00942.webp',
+            '/productos/DSC00945.webp',
+            '/productos/DSC00946.webp'
+        ],
+        features: [
+            { icon: 'battery-charging', text: '9 Baterías <strong>TROJAN Nuevas</strong> (8V)', color: 'text-green-600' },
+            { icon: 'truck', text: '<strong>Batea Eléctrica</strong> de Aluminio', color: 'text-blue-600' },
+            { icon: 'zap', text: 'Luces LED y Vestiduras Negras Nuevas', color: 'text-gray-500' }
+        ]
+    },
+    {
+        id: 'hauler-pro-food-service',
+        title: 'HAULER PRO <span class="text-blue-600">Food Service</span>',
+        subtitle: 'VANBOX - CAJA SECA ELÉCTRICO',
+        price: '$210,000 MXN',
+        images: [
+            '/productos/DSC00912.webp',
+            '/productos/DSC00914.webp',
+            '/productos/DSC00915.webp'
+        ],
+        features: [
+            { icon: 'package', text: '<strong>Caja Seca</strong> (Food Service VanBox)', color: 'text-orange-500' },
+            { icon: 'battery-charging', text: '9 Baterías <strong>TROJAN Nuevas</strong> (8V)', color: 'text-green-600' },
+            { icon: 'hotel', text: 'Ideal para Hotelería, Catering y Campus', color: 'text-gray-500' }
+        ]
+    }
+];
+---
+
+<BaseLayout
+    title="Carritos Utilitarios Eléctricos Cushman | Soluciones B2B y Carga Pesada"
+    description="Descubre carritos utilitarios eléctricos Cushman para carga y servicio. Precios claros, baterías Trojan nuevas y soporte integral en México."
+>
+    <Header />
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="bg-white">
+            <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-32 z-10">
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <div class="text-center lg:text-left animate-on-scroll">
+                        <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight text-gray-900 mb-6">
+                            Revolucione su Operativa con
+                            <span class="text-blue-600">Potencia Eléctrica</span>
+                        </h1>
+                        <p class="text-lg md:text-xl text-gray-600 mb-10 max-w-xl mx-auto lg:mx-0">
+                            Vehículos utilitarios Cushman 100% eléctricos. Optimizados para carga pesada y servicio B2B, con baterías Trojan nuevas y soporte integral en todo México.
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                            <a href="#modelos" class="bg-blue-600 text-white font-semibold px-8 py-4 rounded-xl shadow-lg shadow-blue-600/20 hover:bg-blue-700 transition-all transform hover:scale-105">
+                                Ver Modelos y Precios
+                            </a>
+                            <a href="#contacto" class="bg-gray-100 text-gray-800 font-semibold px-8 py-4 rounded-xl hover:bg-gray-200 transition-all transform hover:scale-105">
+                                Solicitar Ficha Técnica
+                            </a>
+                        </div>
+                    </div>
+                    <div class="animate-on-scroll" style="transition-delay: 100ms;">
+                        <img src="https://placehold.co/800x600/e0e7ff/1d4ed8?text=Cushman+Hauler+PRO"
+                             alt="Carrito utilitario eléctrico Cushman Hauler PRO"
+                             class="rounded-2xl shadow-2xl transform hover:scale-105 transition-transform duration-500">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Clientes -->
+        <section id="clientes" class="py-16 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h3 class="text-center text-base font-semibold text-gray-500 mb-8">Empresas que optimizan su logística con nosotros</h3>
+                <div class="flex flex-wrap justify-center items-center gap-x-12 gap-y-8">
+                    <img src="https://placehold.co/120x40/374151/ffffff?text=LOGOTIPO+1" alt="Logo Cliente 1" class="h-8 opacity-50 hover:opacity-100 transition-opacity">
+                    <img src="https://placehold.co/120x40/374151/ffffff?text=LOGOTIPO+2" alt="Logo Cliente 2" class="h-8 opacity-50 hover:opacity-100 transition-opacity">
+                    <img src="https://placehold.co/120x40/374151/ffffff?text=LOGOTIPO+3" alt="Logo Cliente 3" class="h-8 opacity-50 hover:opacity-100 transition-opacity">
+                    <img src="https://placehold.co/120x40/374151/ffffff?text=LOGOTIPO+4" alt="Logo Cliente 4" class="h-8 opacity-50 hover:opacity-100 transition-opacity">
+                    <img src="https://placehold.co/120x40/374151/ffffff?text=LOGOTIPO+5" alt="Logo Cliente 5" class="h-8 opacity-50 hover:opacity-100 transition-opacity">
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Modelos y Precios -->
+        <section id="modelos" class="py-24 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16 animate-on-scroll">
+                    <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900">
+                        Flota <span class="text-blue-600">Cushman</span> para Entrega Inmediata
+                    </h2>
+                    <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">Precios fijos y transparentes. Todos los modelos son 2020 y vienen equipados con componentes nuevos.</p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    {products.map((product, index) => (
+                        <div style={`transition-delay: ${(index + 1) * 100}ms;`}>
+                            <ProductCard
+                                productId={product.id}
+                                title={product.title}
+                                subtitle={product.subtitle}
+                                price={product.price}
+                                features={product.features}
+                                images={product.images}
+                            />
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </section>
+
+        <!-- Galería -->
+        <section id="galeria" class="py-24 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16 animate-on-scroll">
+                    <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900">Vehículos en Acción</h2>
+                    <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">Nuestros carritos Cushman operando en diversos entornos industriales y de servicio.</p>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="grid gap-4">
+                        <img class="gallery-img h-auto max-w-full rounded-lg cursor-pointer hover:opacity-80 transition-opacity animate-on-scroll" src="https://placehold.co/500x800/f3f4f6/111827?text=Uso+en+Almacén" alt="Uso en Almacén">
+                    </div>
+                    <div class="grid gap-4">
+                        <img class="gallery-img h-auto max-w-full rounded-lg cursor-pointer hover:opacity-80 transition-opacity animate-on-scroll" style="transition-delay: 100ms;" src="https://placehold.co/500x500/f3f4f6/111827?text=Servicio+en+Resort" alt="Servicio en Resort">
+                    </div>
+                    <div class="grid gap-4">
+                        <img class="gallery-img h-auto max-w-full rounded-lg cursor-pointer hover:opacity-80 transition-opacity animate-on-scroll" style="transition-delay: 200ms;" src="https://placehold.co/500x800/f3f4f6/111827?text=Mantenimiento+Campus" alt="Mantenimiento Campus">
+                    </div>
+                    <div class="grid gap-4">
+                        <img class="gallery-img h-auto max-w-full rounded-lg cursor-pointer hover:opacity-80 transition-opacity animate-on-scroll" style="transition-delay: 300ms;" src="https://placehold.co/500x500/f3f4f6/111827?text=Logística+Interna" alt="Logística Interna">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Beneficios -->
+        <section id="beneficios" class="py-24 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16 animate-on-scroll">
+                    <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900">La Ventaja Competitiva para su Negocio</h2>
+                    <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">Más que un vehículo, una inversión inteligente en eficiencia y sostenibilidad.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                    <div class="bg-white p-8 rounded-xl border border-gray-200 shadow-lg animate-on-scroll" style="transition-delay: 100ms;">
+                        <div class="inline-flex items-center justify-center w-12 h-12 mb-6 bg-green-100 text-green-600 rounded-lg">
+                            <i data-lucide="zap" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Sostenibilidad y Ahorro</h3>
+                        <p class="text-gray-600">Reduzca su huella de carbono y costos operativos con motores 100% eléctricos y cero emisiones. Ahorre en combustible y mantenimiento.</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-xl border border-gray-200 shadow-lg animate-on-scroll" style="transition-delay: 200ms;">
+                        <div class="inline-flex items-center justify-center w-12 h-12 mb-6 bg-blue-100 text-blue-600 rounded-lg">
+                            <i data-lucide="shield-check" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Calidad y Durabilidad Garantizada</h3>
+                        <p class="text-gray-600">Solo equipamiento premium: baterías Trojan, llantas y vestiduras nuevas para asegurar el máximo rendimiento y tiempo de actividad.</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-xl border border-gray-200 shadow-lg animate-on-scroll" style="transition-delay: 300ms;">
+                        <div class="inline-flex items-center justify-center w-12 h-12 mb-6 bg-gray-200 text-gray-700 rounded-lg">
+                            <i data-lucide="truck" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Logística Nacional y Soporte</h3>
+                        <p class="text-gray-600">Coordinamos la entrega a cualquier punto de la República Mexicana y ofrecemos asesoría técnica post-venta para su total tranquilidad.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Final -->
+        <section id="contacto" class="bg-white">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
+                <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4 animate-on-scroll">
+                    ¿Listo para modernizar su flota?
+                </h2>
+                <p class="text-lg text-gray-600 mb-8 animate-on-scroll" style="transition-delay: 100ms;">
+                    Contáctenos hoy mismo. Nuestro equipo B2B le enviará una cotización formal y la ficha técnica detallada de los modelos de su interés.
+                </p>
+                <a href="https://wa.me/521XXXXXXXXXX?text=Hola%2C%20quisiera%20una%20cotizaci%C3%B3n%20formal%20para%20los%20carritos%20utilitarios%20Cushman." target="_blank" class="inline-flex items-center bg-green-500 text-white text-lg font-bold px-8 py-4 rounded-xl shadow-lg shadow-green-500/20 hover:bg-green-600 transition-all transform hover:scale-105 animate-on-scroll" style="transition-delay: 200ms;">
+                    <i data-lucide="message-circle" class="w-6 h-6 mr-3"></i> Contactar Vía WhatsApp
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <Footer />
+    <WhatsAppButton />
+
+    <!-- Modal para Galería -->
+    <div id="gallery-modal" class="fixed inset-0 bg-black/90 z-[9999] hidden items-center justify-center p-4">
+        <img id="modal-img" src="" class="max-w-full max-h-full object-contain rounded-lg" alt="Imagen ampliada">
+        <button id="modal-close" class="absolute top-6 right-6 text-white/70 hover:text-white transition-colors">
+            <i data-lucide="x" class="w-10 h-10"></i>
+        </button>
+    </div>
+
+    <script>
+        // Lógica del Carrusel de Productos
+        function updateCarousel(productId: string) {
+            const images = (window as any).productImages[productId];
+            const currentIndex = (window as any).currentImageIndex[productId];
+
+            const imgElement = document.getElementById(`img-${productId}`) as HTMLImageElement;
+            if (imgElement) {
+                imgElement.style.transition = 'opacity 0.2s ease-in-out';
+                imgElement.style.opacity = '0';
+                setTimeout(() => {
+                    imgElement.src = images[currentIndex];
+                    imgElement.style.opacity = '1';
+                }, 200);
+            }
+
+            document.querySelectorAll(`#dots-${productId} .dot`).forEach((dot, index) => {
+                dot.classList.toggle('bg-blue-600', index === currentIndex);
+                dot.classList.toggle('bg-gray-300', index !== currentIndex);
+            });
+        }
+
+        (window as any).changeImage = function(productId: string, direction: number) {
+            const images = (window as any).productImages[productId];
+            let newIndex = (window as any).currentImageIndex[productId] + direction;
+            if (newIndex < 0) newIndex = images.length - 1;
+            if (newIndex >= images.length) newIndex = 0;
+            (window as any).currentImageIndex[productId] = newIndex;
+            updateCarousel(productId);
+        }
+
+        // Modal de Galería
+        const modal = document.getElementById('gallery-modal');
+        const modalImg = document.getElementById('modal-img') as HTMLImageElement;
+        const closeBtn = document.getElementById('modal-close');
+        const galleryImages = document.querySelectorAll('.gallery-img');
+
+        galleryImages.forEach(img => {
+            img.addEventListener('click', () => {
+                modal?.classList.remove('hidden');
+                modal?.classList.add('flex');
+                if (modalImg && img instanceof HTMLImageElement) {
+                    modalImg.src = img.src;
+                }
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        function closeModal() {
+            modal?.classList.add('hidden');
+            modal?.classList.remove('flex');
+            document.body.style.overflow = '';
+        }
+
+        closeBtn?.addEventListener('click', closeModal);
+        modal?.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
+        });
+
+        // Inicialización de carruseles
+        document.addEventListener('DOMContentLoaded', () => {
+            Object.keys((window as any).productImages || {}).forEach(productId => {
+                const dotsContainer = document.getElementById(`dots-${productId}`);
+                if (dotsContainer) {
+                    dotsContainer.innerHTML = '';
+                    (window as any).productImages[productId].forEach((_: any, index: number) => {
+                        const dot = document.createElement('button');
+                        dot.classList.add('dot', 'h-2', 'w-2', 'rounded-full', 'transition-colors');
+                        dot.onclick = () => {
+                            (window as any).currentImageIndex[productId] = index;
+                            updateCarousel(productId);
+                        };
+                        dotsContainer.appendChild(dot);
+                    });
+                }
+                updateCarousel(productId);
+            });
+        });
+    </script>
+</BaseLayout>
