@@ -130,7 +130,6 @@ const { slug } = Astro.params;
   type="product"
 >
   <Header />
-  <WhatsAppButton message={`Hola, me interesa el ${product.name}. ¿Pueden darme más información?`} />
 
   <!-- Product Schema -->
   <script type="application/ld+json" set:html={JSON.stringify({
@@ -276,4 +275,5 @@ const { slug } = Astro.params;
   </main>
 
   <Footer />
+  <WhatsAppButton message={`Hola, me interesa el ${product.name}. ¿Pueden darme más información?`} />
 </BaseLayout>
