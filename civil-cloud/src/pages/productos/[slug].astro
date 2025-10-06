@@ -8,51 +8,82 @@ import { siteConfig } from '../../config/site';
 export async function getStaticPaths() {
   return [
     {
-      params: { slug: 'hauler-pro-negro' },
+      params: { slug: 'hauler-pro-aluminium-bed-box-negro' },
       props: {
         product: {
-          name: 'HAULER PRO Negro',
-          subtitle: 'BATEA DE ALUMINIO ELÉCTRICA',
+          name: 'HAULER PRO ALUMINIUM BED BOX ELÉCTRICO',
+          subtitle: 'BATEA ELÉCTRICA DE ALUMINIO - COLOR NEGRO',
           price: 210000,
           currency: 'MXN',
-          description: 'Carrito utilitario eléctrico Cushman Hauler PRO con batea de aluminio eléctrica, equipado con 9 baterías Trojan nuevas de 8V, llantas nuevas y vestiduras premium. Ideal para carga pesada y servicio industrial.',
+          description: 'Carrito utilitario eléctrico Cushman Hauler PRO modelo 2020 en color negro, equipado con batea eléctrica de aluminio, 9 baterías Trojan nuevas de 8V, llantas nuevas 20x8x10, pintura nueva, vestiduras nuevas en negro, luces LED, cargador integrado y defensa. Ideal para hotelería, industria y servicios.',
           images: [
+            '/productos/DSC00899.webp',
             '/productos/DSC00900.webp',
+            '/productos/DSC00902.webp',
             '/productos/DSC00903.webp',
-            '/productos/DSC00905.webp'
+            '/productos/DSC00905.webp',
+            '/productos/DSC00907.webp',
+            '/productos/DSC00908.webp',
+            '/productos/DSC00910.webp',
+            '/productos/DSC00912.webp',
+            '/productos/DSC00914.webp',
+            '/productos/DSC00915.webp',
+            '/productos/DSC00916.webp',
+            '/productos/DSC00920.webp'
           ],
           features: [
             '9 Baterías TROJAN Nuevas (8V)',
             'Batea Eléctrica de Aluminio',
-            'Llantas Nuevas',
-            'Vestiduras Premium',
+            'Llantas Nuevas 20x8x10',
+            'Pintura Nueva - Color Negro',
+            'Vestiduras Nuevas en Negro',
+            'Luces LED',
+            'Cargador Integrado',
+            'Defensa',
             '100% Eléctrico',
             'Modelo 2020'
           ],
           specs: [
-            { label: 'Motor', value: 'Eléctrico AC' },
+            { label: 'Marca', value: 'Cushman' },
+            { label: 'Modelo', value: 'Hauler PRO Aluminium Bed BOX' },
+            { label: 'Año', value: '2020' },
+            { label: 'Color', value: 'Negro' },
+            { label: 'Motor', value: 'Eléctrico' },
             { label: 'Baterías', value: '9x Trojan 8V (Nuevas)' },
             { label: 'Tipo de Batea', value: 'Aluminio Eléctrica' },
-            { label: 'Capacidad de Carga', value: '500-700 kg' },
-            { label: 'Año', value: '2020' },
+            { label: 'Llantas', value: 'Nuevas 20x8x10' },
+            { label: 'Vestiduras', value: 'Nuevas - Negro' },
+            { label: 'Iluminación', value: 'Luces LED' },
             { label: 'Condición', value: 'Seminuevo - Excelente Estado' }
           ]
         }
       }
     },
     {
-      params: { slug: 'hauler-pro-aluminium-bed-box' },
+      params: { slug: 'hauler-pro-aluminium-bed-box-blanco' },
       props: {
         product: {
-          name: 'HAULER PRO Aluminium Bed BOX Eléctrico',
+          name: 'HAULER PRO ALUMINIUM BED BOX ELÉCTRICO',
           subtitle: 'BATEA ELÉCTRICA DE ALUMINIO - COLOR BLANCO',
           price: 210000,
           currency: 'MXN',
           description: 'Carrito utilitario eléctrico Cushman Hauler PRO modelo 2020 en color blanco, equipado con batea eléctrica de aluminio, 9 baterías Trojan nuevas de 8V, llantas nuevas 20x8x10, pintura nueva, vestiduras nuevas en negro, luces LED, cargador integrado y defensa. Ideal para hotelería, industria y servicios.',
           images: [
             '/productos/DSC00942.webp',
+            '/productos/DSC00943.webp',
             '/productos/DSC00945.webp',
-            '/productos/DSC00946.webp'
+            '/productos/DSC00946.webp',
+            '/productos/DSC00947.webp',
+            '/productos/DSC00949.webp',
+            '/productos/DSC00951.webp',
+            '/productos/DSC00952.webp',
+            '/productos/DSC00953.webp',
+            '/productos/DSC00954.webp',
+            '/productos/DSC00955.webp',
+            '/productos/DSC00956.webp',
+            '/productos/DSC00957.webp',
+            '/productos/DSC00958.webp',
+            '/productos/DSC00959.webp'
           ],
           features: [
             '9 Baterías TROJAN Nuevas (8V)',
@@ -68,49 +99,67 @@ export async function getStaticPaths() {
           ],
           specs: [
             { label: 'Marca', value: 'Cushman' },
-            { label: 'Modelo', value: 'Hauler PRO' },
+            { label: 'Modelo', value: 'Hauler PRO Aluminium Bed BOX' },
             { label: 'Año', value: '2020' },
             { label: 'Color', value: 'Blanco' },
-            { label: 'Motor', value: 'Eléctrico AC' },
+            { label: 'Motor', value: 'Eléctrico' },
             { label: 'Baterías', value: '9x Trojan 8V (Nuevas)' },
             { label: 'Tipo de Batea', value: 'Aluminio Eléctrica' },
             { label: 'Llantas', value: 'Nuevas 20x8x10' },
             { label: 'Vestiduras', value: 'Nuevas - Negro' },
             { label: 'Iluminación', value: 'Luces LED' },
-            { label: 'Capacidad de Carga', value: '500-700 kg' },
             { label: 'Condición', value: 'Seminuevo - Excelente Estado' }
           ]
         }
       }
     },
     {
-      params: { slug: 'hauler-pro-food-service' },
+      params: { slug: 'hauler-pro-food-service-vanbox' },
       props: {
         product: {
-          name: 'HAULER PRO Food Service',
-          subtitle: 'VANBOX - CAJA SECA ELÉCTRICO',
+          name: 'HAULER PRO FOOD SERVICE VANBOX',
+          subtitle: 'CAJA SECA - COLOR BLANCO/NEGRO',
           price: 210000,
           currency: 'MXN',
-          description: 'Carrito utilitario eléctrico Cushman Hauler PRO con caja seca VanBox, ideal para food service, catering, hotelería y campus universitarios. 9 baterías Trojan nuevas de 8V.',
+          description: 'Carrito utilitario eléctrico Cushman Hauler PRO modelo 2020 en color blanco/negro, equipado con caja seca VanBox, 9 baterías Trojan nuevas de 8V, llantas nuevas 18x8.5x8, pintura nueva, vestiduras nuevas en negro, luces LED y cargador integrado. Ideal para food service, catering, hotelería y campus universitarios.',
           images: [
-            '/productos/DSC00912.webp',
-            '/productos/DSC00914.webp',
-            '/productos/DSC00915.webp'
+            '/productos/DSC00921.webp',
+            '/productos/DSC00925.webp',
+            '/productos/DSC00927.webp',
+            '/productos/DSC00929.webp',
+            '/productos/DSC00931.webp',
+            '/productos/DSC00932.webp',
+            '/productos/DSC00933.webp',
+            '/productos/DSC00934.webp',
+            '/productos/DSC00936.webp',
+            '/productos/DSC00937.webp',
+            '/productos/DSC00939.webp'
           ],
           features: [
             'Caja Seca VanBox',
             '9 Baterías TROJAN Nuevas (8V)',
+            'Llantas Nuevas 18x8.5x8',
+            'Pintura Nueva - Color Blanco/Negro',
+            'Vestiduras Nuevas en Negro',
+            'Luces LED',
+            'Cargador Integrado',
             'Ideal para Food Service',
             'Perfecto para Hotelería',
             '100% Eléctrico',
             'Modelo 2020'
           ],
           specs: [
-            { label: 'Motor', value: 'Eléctrico AC' },
+            { label: 'Marca', value: 'Cushman' },
+            { label: 'Modelo', value: 'Hauler PRO Food Service VanBox' },
+            { label: 'Año', value: '2020' },
+            { label: 'Color', value: 'Blanco/Negro' },
+            { label: 'Motor', value: 'Eléctrico' },
             { label: 'Baterías', value: '9x Trojan 8V (Nuevas)' },
             { label: 'Tipo de Configuración', value: 'Caja Seca VanBox' },
+            { label: 'Llantas', value: 'Nuevas 18x8.5x8' },
+            { label: 'Vestiduras', value: 'Nuevas - Negro' },
+            { label: 'Iluminación', value: 'Luces LED' },
             { label: 'Uso Ideal', value: 'Food Service / Catering / Hoteles' },
-            { label: 'Año', value: '2020' },
             { label: 'Condición', value: 'Seminuevo - Excelente Estado' }
           ]
         }

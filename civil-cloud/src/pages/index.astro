@@ -7,30 +7,34 @@ import ProductCard from '../components/ProductCard.astro';
 
 const products = [
     {
-        id: 'hauler-pro-negro',
-        title: 'HAULER PRO <span class="text-blue-600">Negro</span>',
-        subtitle: 'BATEA DE ALUMINIO ELÉCTRICA',
+        id: 'hauler-pro-aluminium-bed-box-negro',
+        title: 'HAULER PRO ALUMINIUM BED BOX <span class="text-blue-600">ELÉCTRICO</span>',
+        subtitle: 'BATEA ELÉCTRICA DE ALUMINIO - COLOR NEGRO',
         price: '$210,000 MXN',
         images: [
+            '/productos/DSC00899.webp',
             '/productos/DSC00900.webp',
+            '/productos/DSC00902.webp',
             '/productos/DSC00903.webp',
             '/productos/DSC00905.webp'
         ],
         features: [
             { icon: 'battery-charging', text: '9 Baterías <strong>TROJAN Nuevas</strong> (8V)', color: 'text-green-600' },
             { icon: 'truck', text: '<strong>Batea Eléctrica</strong> de Aluminio', color: 'text-blue-600' },
-            { icon: 'check-circle', text: 'Llantas Nuevas y Vestiduras Premium', color: 'text-gray-500' }
+            { icon: 'check-circle', text: 'Llantas Nuevas 20x8x10 y Vestiduras Negras', color: 'text-gray-500' }
         ]
     },
     {
-        id: 'hauler-pro-aluminium-bed-box',
-        title: 'HAULER PRO <span class="text-blue-600">Aluminium Bed BOX</span>',
-        subtitle: 'BATEA ELÉCTRICA DE ALUMINIO - BLANCO',
+        id: 'hauler-pro-aluminium-bed-box-blanco',
+        title: 'HAULER PRO ALUMINIUM BED BOX <span class="text-blue-600">ELÉCTRICO</span>',
+        subtitle: 'BATEA ELÉCTRICA DE ALUMINIO - COLOR BLANCO',
         price: '$210,000 MXN',
         images: [
             '/productos/DSC00942.webp',
+            '/productos/DSC00943.webp',
             '/productos/DSC00945.webp',
-            '/productos/DSC00946.webp'
+            '/productos/DSC00946.webp',
+            '/productos/DSC00947.webp'
         ],
         features: [
             { icon: 'battery-charging', text: '9 Baterías <strong>TROJAN Nuevas</strong> (8V)', color: 'text-green-600' },
@@ -39,17 +43,19 @@ const products = [
         ]
     },
     {
-        id: 'hauler-pro-food-service',
-        title: 'HAULER PRO <span class="text-blue-600">Food Service</span>',
-        subtitle: 'VANBOX - CAJA SECA ELÉCTRICO',
+        id: 'hauler-pro-food-service-vanbox',
+        title: 'HAULER PRO <span class="text-blue-600">FOOD SERVICE VANBOX</span>',
+        subtitle: 'CAJA SECA - COLOR BLANCO/NEGRO',
         price: '$210,000 MXN',
         images: [
-            '/productos/DSC00912.webp',
-            '/productos/DSC00914.webp',
-            '/productos/DSC00915.webp'
+            '/productos/DSC00921.webp',
+            '/productos/DSC00925.webp',
+            '/productos/DSC00927.webp',
+            '/productos/DSC00929.webp',
+            '/productos/DSC00931.webp'
         ],
         features: [
-            { icon: 'package', text: '<strong>Caja Seca</strong> (Food Service VanBox)', color: 'text-orange-500' },
+            { icon: 'package', text: '<strong>Caja Seca</strong> VanBox', color: 'text-orange-500' },
             { icon: 'battery-charging', text: '9 Baterías <strong>TROJAN Nuevas</strong> (8V)', color: 'text-green-600' },
             { icon: 'hotel', text: 'Ideal para Hotelería, Catering y Campus', color: 'text-gray-500' }
         ]
@@ -86,24 +92,18 @@ const products = [
                         </div>
                     </div>
                     <div class="animate-on-scroll" style="transition-delay: 100ms;">
-                        <img src="https://placehold.co/800x600/e0e7ff/1d4ed8?text=Cushman+Hauler+PRO"
-                             alt="Carrito utilitario eléctrico Cushman Hauler PRO"
-                             class="rounded-2xl shadow-2xl transform hover:scale-105 transition-transform duration-500">
+                        <div class="grid grid-cols-2 gap-4">
+                            <img src="/productos/DSC00899.webp"
+                                 alt="Cushman Hauler PRO Negro"
+                                 class="rounded-2xl shadow-2xl transform hover:scale-105 transition-transform duration-500">
+                            <img src="/productos/DSC00942.webp"
+                                 alt="Cushman Hauler PRO Blanco"
+                                 class="rounded-2xl shadow-2xl transform hover:scale-105 transition-transform duration-500">
+                            <img src="/productos/DSC00921.webp"
+                                 alt="Cushman Hauler PRO VanBox"
+                                 class="rounded-2xl shadow-2xl transform hover:scale-105 transition-transform duration-500 col-span-2">
+                        </div>
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Sección de Clientes -->
-        <section id="clientes" class="py-16 bg-gray-50">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h3 class="text-center text-base font-semibold text-gray-500 mb-8">Empresas que optimizan su logística con nosotros</h3>
-                <div class="flex flex-wrap justify-center items-center gap-x-12 gap-y-8">
-                    <img src="https://placehold.co/120x40/374151/ffffff?text=LOGOTIPO+1" alt="Logo Cliente 1" class="h-8 opacity-50 hover:opacity-100 transition-opacity">
-                    <img src="https://placehold.co/120x40/374151/ffffff?text=LOGOTIPO+2" alt="Logo Cliente 2" class="h-8 opacity-50 hover:opacity-100 transition-opacity">
-                    <img src="https://placehold.co/120x40/374151/ffffff?text=LOGOTIPO+3" alt="Logo Cliente 3" class="h-8 opacity-50 hover:opacity-100 transition-opacity">
-                    <img src="https://placehold.co/120x40/374151/ffffff?text=LOGOTIPO+4" alt="Logo Cliente 4" class="h-8 opacity-50 hover:opacity-100 transition-opacity">
-                    <img src="https://placehold.co/120x40/374151/ffffff?text=LOGOTIPO+5" alt="Logo Cliente 5" class="h-8 opacity-50 hover:opacity-100 transition-opacity">
                 </div>
             </div>
         </section>
@@ -131,30 +131,6 @@ const products = [
                             />
                         </div>
                     ))}
-                </div>
-            </div>
-        </section>
-
-        <!-- Galería -->
-        <section id="galeria" class="py-24 bg-white">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-16 animate-on-scroll">
-                    <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900">Vehículos en Acción</h2>
-                    <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">Nuestros carritos Cushman operando en diversos entornos industriales y de servicio.</p>
-                </div>
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                    <div class="grid gap-4">
-                        <img class="gallery-img h-auto max-w-full rounded-lg cursor-pointer hover:opacity-80 transition-opacity animate-on-scroll" src="https://placehold.co/500x800/f3f4f6/111827?text=Uso+en+Almacén" alt="Uso en Almacén">
-                    </div>
-                    <div class="grid gap-4">
-                        <img class="gallery-img h-auto max-w-full rounded-lg cursor-pointer hover:opacity-80 transition-opacity animate-on-scroll" style="transition-delay: 100ms;" src="https://placehold.co/500x500/f3f4f6/111827?text=Servicio+en+Resort" alt="Servicio en Resort">
-                    </div>
-                    <div class="grid gap-4">
-                        <img class="gallery-img h-auto max-w-full rounded-lg cursor-pointer hover:opacity-80 transition-opacity animate-on-scroll" style="transition-delay: 200ms;" src="https://placehold.co/500x800/f3f4f6/111827?text=Mantenimiento+Campus" alt="Mantenimiento Campus">
-                    </div>
-                    <div class="grid gap-4">
-                        <img class="gallery-img h-auto max-w-full rounded-lg cursor-pointer hover:opacity-80 transition-opacity animate-on-scroll" style="transition-delay: 300ms;" src="https://placehold.co/500x500/f3f4f6/111827?text=Logística+Interna" alt="Logística Interna">
-                    </div>
                 </div>
             </div>
         </section>
