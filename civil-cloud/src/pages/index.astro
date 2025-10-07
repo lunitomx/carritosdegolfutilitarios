@@ -4,6 +4,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import WhatsAppButton from '../components/WhatsAppButton.astro';
 import ProductCard from '../components/ProductCard.astro';
+import { siteConfig } from '../config/site';
 
 const products = [
     {
@@ -177,7 +178,7 @@ const products = [
                 <p class="text-lg text-gray-600 mb-8 animate-on-scroll" style="transition-delay: 100ms;">
                     Contáctenos hoy mismo. Nuestro equipo B2B le enviará una cotización formal y la ficha técnica detallada de los modelos de su interés.
                 </p>
-                <a href="https://wa.me/521XXXXXXXXXX?text=Hola%2C%20quisiera%20una%20cotizaci%C3%B3n%20formal%20para%20los%20carritos%20utilitarios%20Cushman." target="_blank" class="inline-flex items-center bg-green-500 text-white text-lg font-bold px-8 py-4 rounded-xl shadow-lg shadow-green-500/20 hover:bg-green-600 transition-all transform hover:scale-105 animate-on-scroll" style="transition-delay: 200ms;">
+                <a href={`https://wa.me/${siteConfig.contact.whatsapp}?text=${encodeURIComponent("Hola, quisiera una cotización formal para los carritos utilitarios Cushman.")}`} target="_blank" class="inline-flex items-center bg-green-500 text-white text-lg font-bold px-8 py-4 rounded-xl shadow-lg shadow-green-500/20 hover:bg-green-600 transition-all transform hover:scale-105 animate-on-scroll" style="transition-delay: 200ms;">
                     <i data-lucide="message-circle" class="w-6 h-6 mr-3"></i> Contactar Vía WhatsApp
                 </a>
             </div>
