@@ -5,8 +5,8 @@ export const siteConfig = {
 
   contact: {
     email: "ventas@cushmanutilitarios.com",
-    phone: "+52 624 123 4567",
-    whatsapp: "526241234567", // Sin espacios ni signos
+    phone: "+52 1 442 186 5288",
+    whatsapp: "5214421865288", // Sin espacios ni signos
     address: {
       street: "Av. Principal 123",
       city: "Los Cabos",

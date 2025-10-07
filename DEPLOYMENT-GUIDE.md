@@ -13,12 +13,10 @@
 ```
 /home/forge/carritosdegolfutilitarios.com/
 ├── current/                          # Symlink a la release actual
-│   └── civil-cloud/                  # Proyecto Astro
-│       ├── dist/                     # Build de producción (generado)
-│       ├── src/                      # Código fuente
-│       ├── public/                   # Assets estáticos
-│       └── astro.config.mjs         # Configuración de Astro
-├── public/                           # (deprecated - antigua carpeta pública)
+│   ├── dist/                         # Build de producción (generado por Astro)
+│   ├── src/                          # Código fuente
+│   ├── public/                       # Assets estáticos (imágenes, etc.)
+│   └── astro.config.mjs              # Configuración de Astro
 ├── public.bak/                       # Backup del public anterior
 └── releases/                         # Releases de Forge
 ```
@@ -29,10 +27,10 @@
 
 **Root path configurado:**
 ```nginx
-root /home/forge/carritosdegolfutilitarios.com/current/civil-cloud/dist;
+root /home/forge/carritosdegolfutilitarios.com/current/dist;
 ```
 
-**IMPORTANTE:** El root debe apuntar a la carpeta `dist` dentro de `civil-cloud`, NO a `public`.
+**IMPORTANTE:** El root debe apuntar a la carpeta `dist` en `/current/dist`, NO a `/current/public`.
 
 ## Proceso de Deploy
 
@@ -49,16 +47,16 @@ Esto genera la carpeta `dist/` con los archivos estáticos optimizados.
 
 ```bash
 # Opción 1: Copiar carpeta dist completa
-scp -r civil-cloud/dist forge@147.182.194.75:/home/forge/carritosdegolfutilitarios.com/current/civil-cloud/
+scp -r civil-cloud/dist/* forge@147.182.194.75:/home/forge/carritosdegolfutilitarios.com/current/dist/
 
 # Opción 2: Si usas rsync (Linux/Mac)
-rsync -avz --delete civil-cloud/dist/ forge@147.182.194.75:/home/forge/carritosdegolfutilitarios.com/current/civil-cloud/dist/
+rsync -avz --delete civil-cloud/dist/ forge@147.182.194.75:/home/forge/carritosdegolfutilitarios.com/current/dist/
 ```
 
 ### 3. Verificar Permisos
 
 ```bash
-ssh forge@147.182.194.75 "chmod -R 755 /home/forge/carritosdegolfutilitarios.com/current/civil-cloud/dist/"
+ssh forge@147.182.194.75 "chmod -R 755 /home/forge/carritosdegolfutilitarios.com/current/dist/"
 ```
 
 ### 4. Verificar Nginx (si cambió la configuración)
@@ -83,7 +81,7 @@ ssh forge@147.182.194.75 "sudo tail -f /var/log/nginx/access.log"
 
 ### Hacer Backup antes de Deploy
 ```bash
-ssh forge@147.182.194.75 "cd /home/forge/carritosdegolfutilitarios.com/current/civil-cloud && rm -rf dist.bak && cp -r dist dist.bak"
+ssh forge@147.182.194.75 "cd /home/forge/carritosdegolfutilitarios.com/current && rm -rf dist.bak && cp -r dist dist.bak"
 ```
 
 ### Verificar Estado de Nginx
@@ -116,26 +114,29 @@ export default defineConfig({
 ## Estructura del Proyecto
 
 ```
-civil-cloud/
-├── public/                    # Assets estáticos (copiados tal cual a dist)
-│   ├── productos/            # Imágenes de productos (.webp)
-│   └── logo-cgu.png          # Logo principal
-├── src/
-│   ├── pages/                # Páginas del sitio
-│   │   ├── index.astro       # Página principal
-│   │   ├── productos/
-│   │   │   └── [slug].astro  # Páginas dinámicas de productos
-│   │   └── blog/
-│   ├── components/           # Componentes reutilizables
-│   │   ├── Header.astro
-│   │   ├── Footer.astro
-│   │   └── WhatsAppButton.astro
-│   ├── layouts/
-│   │   └── BaseLayout.astro
-│   └── config/
-│       └── site.ts           # Configuración del sitio
-└── dist/                     # Build de producción (generado, no commitear)
+carritosdegolfutilitarios/
+└── civil-cloud/              # Carpeta local del proyecto
+    ├── public/               # Assets estáticos (copiados tal cual a dist)
+    │   ├── productos/        # Imágenes de productos (.webp)
+    │   └── logo-cgu.png      # Logo principal
+    ├── src/
+    │   ├── pages/            # Páginas del sitio
+    │   │   ├── index.astro   # Página principal
+    │   │   ├── productos/
+    │   │   │   └── [slug].astro  # Páginas dinámicas de productos
+    │   │   └── blog/
+    │   ├── components/       # Componentes reutilizables
+    │   │   ├── Header.astro
+    │   │   ├── Footer.astro
+    │   │   └── WhatsAppButton.astro
+    │   ├── layouts/
+    │   │   └── BaseLayout.astro
+    │   └── config/
+    │       └── site.ts       # Configuración del sitio
+    └── dist/                 # Build de producción (generado, no commitear)
 ```
+
+**NOTA:** En el servidor, los archivos se suben directamente a `/current/` sin la carpeta `civil-cloud`.
 
 ## Productos en el Sitio
 
@@ -151,18 +152,18 @@ civil-cloud/
 
 1. **Verificar que dist existe:**
    ```bash
-   ssh forge@147.182.194.75 "ls -la /home/forge/carritosdegolfutilitarios.com/current/civil-cloud/dist/"
+   ssh forge@147.182.194.75 "ls -la /home/forge/carritosdegolfutilitarios.com/current/dist/"
    ```
 
 2. **Verificar configuración de Nginx:**
    ```bash
    ssh forge@147.182.194.75 "cat /etc/nginx/sites-available/carritosdegolfutilitarios.com | grep root"
    ```
-   Debe mostrar: `root /home/forge/carritosdegolfutilitarios.com/current/civil-cloud/dist;`
+   Debe mostrar: `root /home/forge/carritosdegolfutilitarios.com/current/dist;`
 
 3. **Verificar permisos:**
    ```bash
-   ssh forge@147.182.194.75 "ls -la /home/forge/carritosdegolfutilitarios.com/current/civil-cloud/"
+   ssh forge@147.182.194.75 "ls -la /home/forge/carritosdegolfutilitarios.com/current/"
    ```
 
 4. **Reload Nginx:**
@@ -174,7 +175,7 @@ civil-cloud/
 
 1. **Verificar que las imágenes están en dist/productos/:**
    ```bash
-   ssh forge@147.182.194.75 "ls /home/forge/carritosdegolfutilitarios.com/current/civil-cloud/dist/productos/"
+   ssh forge@147.182.194.75 "ls /home/forge/carritosdegolfutilitarios.com/current/dist/productos/"
    ```
 
 2. **Las imágenes en public/ se copian automáticamente a dist/ durante el build**
