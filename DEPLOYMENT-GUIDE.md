@@ -219,6 +219,42 @@ carritosdegolfutilitarios/
 5. El logo está en `/public/logo-cgu.png` y se copia automáticamente a `dist/`
 6. Los cambios en `astro.config.mjs` requieren rebuild completo
 
+## ⚠️ IMPORTANTE: Después de Deploy desde Forge
+
+**Cada vez que Laravel Forge hace un deploy automático (git pull), la carpeta `dist/` desaparece porque no está en Git.**
+
+### Pasos OBLIGATORIOS después de cada deploy de Forge:
+
+1. **Hacer build local:**
+   ```bash
+   cd civil-cloud
+   npm run build
+   ```
+
+2. **Subir dist al servidor:**
+   ```bash
+   rsync -avz --delete dist/ forge:/home/forge/carritosdegolfutilitarios.com/current/civil-cloud/dist/
+   ```
+
+3. **Recargar Nginx:**
+   ```bash
+   ssh forge "sudo systemctl reload nginx"
+   ```
+
+4. **Verificar que el sitio funciona:**
+   - Visita: https://carritosdegolfutilitarios.com
+   - Si ves 404, repite los pasos anteriores
+
+### Script Rápido de Re-deploy:
+
+```bash
+cd /Users/soyahuehuetedigital/Documents/GitHub/carritosdegolfutilitarios/civil-cloud
+npm run build && \
+rsync -avz --delete dist/ forge:/home/forge/carritosdegolfutilitarios.com/current/civil-cloud/dist/ && \
+ssh forge "sudo systemctl reload nginx" && \
+echo "✅ Deploy completado!"
+```
+
 ## Contacto del Servidor
 
 - **Panel de Control:** Laravel Forge
@@ -227,6 +263,9 @@ carritosdegolfutilitarios/
 
 ## Última Actualización
 
-- **Fecha:** 6 de Octubre, 2025
-- **Cambios:** Deploy inicial con 3 productos, logo CGU, hero con imágenes reales
-- **Commit:** c48b164 - "Update site URL to carritosdegolfutilitarios.com"
+- **Fecha:** 10 de Octubre, 2025
+- **Cambios:** Actualización de precios a $220,000, rebranding a EZGO & Cushman, descripción mejorada, proceso de deploy post-Forge documentado
+- **Commits:**
+  - 0f6f9a3 - Update pricing to $220,000 and rebrand to EZGO & Cushman
+  - 3b399fc - Remove EZGO from individual product pages
+  - 64a53cf - Update site description with detailed use cases
