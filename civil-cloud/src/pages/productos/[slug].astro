@@ -15,7 +15,7 @@ export async function getStaticPaths() {
           subtitle: 'BATEA ELÉCTRICA DE ALUMINIO - COLOR NEGRO',
           price: 220000,
           currency: 'MXN',
-          description: 'Carrito utilitario eléctrico EZGO & Cushman Hauler PRO modelo 2020 en color negro, equipado con batea eléctrica de aluminio, 9 baterías Trojan nuevas de 8V, llantas nuevas 20x8x10, pintura nueva, vestiduras nuevas en negro, luces LED, cargador integrado y defensa. Ideal para hotelería, industria y servicios.',
+          description: 'Carrito utilitario eléctrico Cushman Hauler PRO modelo 2020 en color negro, equipado con batea eléctrica de aluminio, 9 baterías Trojan nuevas de 8V, llantas nuevas 20x8x10, pintura nueva, vestiduras nuevas en negro, luces LED, cargador integrado y defensa. Ideal para hotelería, industria y servicios.',
           images: [
             '/productos/DSC00899.webp',
             '/productos/DSC00900.webp',
@@ -44,7 +44,7 @@ export async function getStaticPaths() {
             'Modelo 2020'
           ],
           specs: [
-            { label: 'Marca', value: 'EZGO & Cushman' },
+            { label: 'Marca', value: 'Cushman' },
             { label: 'Modelo', value: 'Hauler PRO Aluminium Bed BOX' },
             { label: 'Año', value: '2020' },
             { label: 'Color', value: 'Negro' },
@@ -67,7 +67,7 @@ export async function getStaticPaths() {
           subtitle: 'BATEA ELÉCTRICA DE ALUMINIO - COLOR BLANCO',
           price: 220000,
           currency: 'MXN',
-          description: 'Carrito utilitario eléctrico EZGO & Cushman Hauler PRO modelo 2020 en color blanco, equipado con batea eléctrica de aluminio, 9 baterías Trojan nuevas de 8V, llantas nuevas 20x8x10, pintura nueva, vestiduras nuevas en negro, luces LED, cargador integrado y defensa. Ideal para hotelería, industria y servicios.',
+          description: 'Carrito utilitario eléctrico Cushman Hauler PRO modelo 2020 en color blanco, equipado con batea eléctrica de aluminio, 9 baterías Trojan nuevas de 8V, llantas nuevas 20x8x10, pintura nueva, vestiduras nuevas en negro, luces LED, cargador integrado y defensa. Ideal para hotelería, industria y servicios.',
           images: [
             '/productos/DSC00942.webp',
             '/productos/DSC00943.webp',
@@ -98,7 +98,7 @@ export async function getStaticPaths() {
             'Modelo 2020'
           ],
           specs: [
-            { label: 'Marca', value: 'EZGO & Cushman' },
+            { label: 'Marca', value: 'Cushman' },
             { label: 'Modelo', value: 'Hauler PRO Aluminium Bed BOX' },
             { label: 'Año', value: '2020' },
             { label: 'Color', value: 'Blanco' },
@@ -121,7 +121,7 @@ export async function getStaticPaths() {
           subtitle: 'CAJA SECA - COLOR BLANCO/NEGRO',
           price: 220000,
           currency: 'MXN',
-          description: 'Carrito utilitario eléctrico EZGO & Cushman Hauler PRO modelo 2020 en color blanco/negro, equipado con caja seca VanBox, 9 baterías Trojan nuevas de 8V, llantas nuevas 18x8.5x8, pintura nueva, vestiduras nuevas en negro, luces LED y cargador integrado. Ideal para food service, catering, hotelería y campus universitarios.',
+          description: 'Carrito utilitario eléctrico Cushman Hauler PRO modelo 2020 en color blanco/negro, equipado con caja seca VanBox, 9 baterías Trojan nuevas de 8V, llantas nuevas 18x8.5x8, pintura nueva, vestiduras nuevas en negro, luces LED y cargador integrado. Ideal para food service, catering, hotelería y campus universitarios.',
           images: [
             '/productos/DSC00921.webp',
             '/productos/DSC00925.webp',
@@ -149,7 +149,7 @@ export async function getStaticPaths() {
             'Modelo 2020'
           ],
           specs: [
-            { label: 'Marca', value: 'EZGO & Cushman' },
+            { label: 'Marca', value: 'Cushman' },
             { label: 'Modelo', value: 'Hauler PRO Food Service VanBox' },
             { label: 'Año', value: '2020' },
             { label: 'Color', value: 'Blanco/Negro' },
@@ -173,7 +173,7 @@ const { slug } = Astro.params;
 ---
 
 <BaseLayout
-  title={`${product.name} - ${product.subtitle} | EZGO & Cushman Utilitarios`}
+  title={`${product.name} - ${product.subtitle} | Cushman Utilitarios`}
   description={product.description}
   image={product.images[0]}
   type="product"
@@ -189,7 +189,7 @@ const { slug } = Astro.params;
     "image": product.images.map(img => new URL(img, siteConfig.url).toString()),
     "brand": {
       "@type": "Brand",
-      "name": "EZGO & Cushman"
+      "name": "Cushman"
     },
     "offers": {
       "@type": "Offer",
@@ -309,7 +309,7 @@ const { slug } = Astro.params;
     <section class="py-16">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h2 class="text-3xl font-extrabold text-gray-900 mb-4">¿Listo para adquirir este vehículo?</h2>
-        <p class="text-lg text-gray-600 mb-8">Contáctenos ahora y le enviaremos toda la información técnica y opciones de financiamiento.</p>
+        <p class="text-lg text-gray-600 mb-8">Contáctenos ahora y le enviaremos toda la información técnica. Aceptamos todas las tarjetas de crédito.</p>
         <a
           href={`https://wa.me/${siteConfig.contact.whatsapp}?text=${encodeURIComponent(`Hola, quiero más información sobre el ${product.name}`)}`}
           target="_blank"
