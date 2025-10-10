@@ -4,7 +4,7 @@ export const siteConfig = {
   description: "Carritos de golf utilitarios eléctricos EZGO & Cushman para carga pesada, trabajo duro, transporte de personas, transporte de huéspedes, adultos mayores o personas con necesidades de movilidad en México",
 
   contact: {
-    email: "ventas@cushmanutilitarios.com",
+    email: "edmundo@coversandfelt.com",
     phone: "+52 1 442 186 5288",
     whatsapp: "5214421865288", // Sin espacios ni signos
     address: {
