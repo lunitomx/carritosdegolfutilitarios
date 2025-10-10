@@ -13,9 +13,9 @@ export async function getStaticPaths() {
         product: {
           name: 'HAULER PRO ALUMINIUM BED BOX ELÉCTRICO',
           subtitle: 'BATEA ELÉCTRICA DE ALUMINIO - COLOR NEGRO',
-          price: 210000,
+          price: 220000,
           currency: 'MXN',
-          description: 'Carrito utilitario eléctrico Cushman Hauler PRO modelo 2020 en color negro, equipado con batea eléctrica de aluminio, 9 baterías Trojan nuevas de 8V, llantas nuevas 20x8x10, pintura nueva, vestiduras nuevas en negro, luces LED, cargador integrado y defensa. Ideal para hotelería, industria y servicios.',
+          description: 'Carrito utilitario eléctrico EZGO & Cushman Hauler PRO modelo 2020 en color negro, equipado con batea eléctrica de aluminio, 9 baterías Trojan nuevas de 8V, llantas nuevas 20x8x10, pintura nueva, vestiduras nuevas en negro, luces LED, cargador integrado y defensa. Ideal para hotelería, industria y servicios.',
           images: [
             '/productos/DSC00899.webp',
             '/productos/DSC00900.webp',
@@ -44,7 +44,7 @@ export async function getStaticPaths() {
             'Modelo 2020'
           ],
           specs: [
-            { label: 'Marca', value: 'Cushman' },
+            { label: 'Marca', value: 'EZGO & Cushman' },
             { label: 'Modelo', value: 'Hauler PRO Aluminium Bed BOX' },
             { label: 'Año', value: '2020' },
             { label: 'Color', value: 'Negro' },
@@ -65,9 +65,9 @@ export async function getStaticPaths() {
         product: {
           name: 'HAULER PRO ALUMINIUM BED BOX ELÉCTRICO',
           subtitle: 'BATEA ELÉCTRICA DE ALUMINIO - COLOR BLANCO',
-          price: 210000,
+          price: 220000,
           currency: 'MXN',
-          description: 'Carrito utilitario eléctrico Cushman Hauler PRO modelo 2020 en color blanco, equipado con batea eléctrica de aluminio, 9 baterías Trojan nuevas de 8V, llantas nuevas 20x8x10, pintura nueva, vestiduras nuevas en negro, luces LED, cargador integrado y defensa. Ideal para hotelería, industria y servicios.',
+          description: 'Carrito utilitario eléctrico EZGO & Cushman Hauler PRO modelo 2020 en color blanco, equipado con batea eléctrica de aluminio, 9 baterías Trojan nuevas de 8V, llantas nuevas 20x8x10, pintura nueva, vestiduras nuevas en negro, luces LED, cargador integrado y defensa. Ideal para hotelería, industria y servicios.',
           images: [
             '/productos/DSC00942.webp',
             '/productos/DSC00943.webp',
@@ -98,7 +98,7 @@ export async function getStaticPaths() {
             'Modelo 2020'
           ],
           specs: [
-            { label: 'Marca', value: 'Cushman' },
+            { label: 'Marca', value: 'EZGO & Cushman' },
             { label: 'Modelo', value: 'Hauler PRO Aluminium Bed BOX' },
             { label: 'Año', value: '2020' },
             { label: 'Color', value: 'Blanco' },
@@ -119,9 +119,9 @@ export async function getStaticPaths() {
         product: {
           name: 'HAULER PRO FOOD SERVICE VANBOX',
           subtitle: 'CAJA SECA - COLOR BLANCO/NEGRO',
-          price: 210000,
+          price: 220000,
           currency: 'MXN',
-          description: 'Carrito utilitario eléctrico Cushman Hauler PRO modelo 2020 en color blanco/negro, equipado con caja seca VanBox, 9 baterías Trojan nuevas de 8V, llantas nuevas 18x8.5x8, pintura nueva, vestiduras nuevas en negro, luces LED y cargador integrado. Ideal para food service, catering, hotelería y campus universitarios.',
+          description: 'Carrito utilitario eléctrico EZGO & Cushman Hauler PRO modelo 2020 en color blanco/negro, equipado con caja seca VanBox, 9 baterías Trojan nuevas de 8V, llantas nuevas 18x8.5x8, pintura nueva, vestiduras nuevas en negro, luces LED y cargador integrado. Ideal para food service, catering, hotelería y campus universitarios.',
           images: [
             '/productos/DSC00921.webp',
             '/productos/DSC00925.webp',
@@ -149,7 +149,7 @@ export async function getStaticPaths() {
             'Modelo 2020'
           ],
           specs: [
-            { label: 'Marca', value: 'Cushman' },
+            { label: 'Marca', value: 'EZGO & Cushman' },
             { label: 'Modelo', value: 'Hauler PRO Food Service VanBox' },
             { label: 'Año', value: '2020' },
             { label: 'Color', value: 'Blanco/Negro' },
@@ -173,7 +173,7 @@ const { slug } = Astro.params;
 ---
 
 <BaseLayout
-  title={`${product.name} - ${product.subtitle} | Cushman Utilitarios`}
+  title={`${product.name} - ${product.subtitle} | EZGO & Cushman Utilitarios`}
   description={product.description}
   image={product.images[0]}
   type="product"
@@ -189,7 +189,7 @@ const { slug } = Astro.params;
     "image": product.images.map(img => new URL(img, siteConfig.url).toString()),
     "brand": {
       "@type": "Brand",
-      "name": "Cushman"
+      "name": "EZGO & Cushman"
     },
     "offers": {
       "@type": "Offer",

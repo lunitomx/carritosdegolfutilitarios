@@ -13,7 +13,7 @@ const { productId, title, subtitle, price, features, images } = Astro.props;
 
 <div class="bg-white rounded-2xl shadow-xl border border-gray-200 overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 animate-on-scroll">
     <div class="relative group">
-        <img id={`img-${productId}`} src={images[0]} alt={`Cushman ${title}`} class="w-full h-64 object-cover">
+        <img id={`img-${productId}`} src={images[0]} alt={`EZGO & Cushman ${title}`} class="w-full h-64 object-cover">
         <button onclick={`changeImage('${productId}', -1)`} class="absolute top-1/2 left-3 -translate-y-1/2 bg-white/70 text-gray-800 p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity hover:bg-white">
             <i data-lucide="chevron-left" class="w-5 h-5"></i>
         </button>
