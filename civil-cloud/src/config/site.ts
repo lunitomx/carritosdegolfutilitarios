@@ -1,7 +1,7 @@
 export const siteConfig = {
   name: "EZGO & Cushman Utilitarios Eléctricos",
   url: "https://cushmanutilitarios.com",
-  description: "Carritos de golf utilitarios eléctricos EZGO & Cushman para carga pesada y soluciones B2B en México",
+  description: "Carritos de golf utilitarios eléctricos EZGO & Cushman para carga pesada, trabajo duro, transporte de personas, transporte de huéspedes, adultos mayores o personas con necesidades de movilidad en México",
 
   contact: {
     email: "ventas@cushmanutilitarios.com",
