@@ -21,6 +21,9 @@ const canonicalURL = new URL(Astro.url.pathname, siteConfig.url);
     <title>{title}</title>
     <meta name="description" content={description}>
 
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
     <!-- Canonical URL -->
     <link rel="canonical" href={canonicalURL}>
 
