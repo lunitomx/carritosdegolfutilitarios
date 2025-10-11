@@ -49,3 +49,9 @@ coverage/
 *.tmp
 *.temp
 .cache/
+
+# Archivos HTML estáticos (migrados a Astro)
+archivos-html-estaticos/
+
+# Claude Code configuration
+.claude/
