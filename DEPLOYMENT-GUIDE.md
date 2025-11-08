@@ -263,9 +263,14 @@ echo "✅ Deploy completado!"
 
 ## Última Actualización
 
-- **Fecha:** 10 de Octubre, 2025
-- **Cambios:** Actualización de precios a $220,000, rebranding a EZGO & Cushman, descripción mejorada, proceso de deploy post-Forge documentado
+- **Fecha:** 8 de Noviembre, 2025
+- **Cambios:**
+  - Instalado Meta Pixel (ID: 1726876758028027) con tracking de PageView
+  - Reemplazado icono genérico por logo oficial de WhatsApp en botones
+  - Implementado tracking de eventos 'Contact' para clics en WhatsApp y llamadas
+  - Agregada sección 'Otros productos relacionados' en páginas de producto
+  - Limpieza de referencias a cushmanutilitarios.com
+  - Actualización de redes sociales (solo Instagram)
 - **Commits:**
-  - 0f6f9a3 - Update pricing to $220,000 and rebrand to EZGO & Cushman
-  - 3b399fc - Remove EZGO from individual product pages
-  - 64a53cf - Update site description with detailed use cases
+  - f28dbff - Mejoras en página de productos: WhatsApp icon, Facebook Pixel y productos relacionados
+  - c137099 - Limpiar referencias a cushmanutilitarios.com y duplicado de pixel
