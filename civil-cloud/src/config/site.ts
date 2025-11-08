@@ -17,9 +17,7 @@ export const siteConfig = {
   },
 
   social: {
-    facebook: "https://facebook.com/cushmanutilitarios",
-    instagram: "https://instagram.com/cushmanutilitarios",
-    twitter: "https://twitter.com/cushman_mx"
+    instagram: "https://www.instagram.com/carritosdegolf_utilitarios/"
   },
 
   business: {
